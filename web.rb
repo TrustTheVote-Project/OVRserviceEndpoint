@@ -12,7 +12,8 @@ post '/SureOVRWebAPI/api/ovr' do
   is_error = @request_xml =~ /<FirstName>ERROR<\/FirstName>/
   if is_error
      @request_xml =~ /<LastName>(.+)<\/LastName>/
-     error_string = $1 || "There was an error"      "<RESPONSE><APPLICATIONID></APPLICATIONID><APPLICATIONDATE>#{DateTime.now}</APPLICATIONDATE><SIGNATURE></SIGNATURE><ERROR>#{error_string}</ERROR></RESPONSE>"
+     error_string = $1 || "There was an error"
+     "<RESPONSE><APPLICATIONID></APPLICATIONID><APPLICATIONDATE>#{DateTime.now}</APPLICATIONDATE><SIGNATURE></SIGNATURE><ERROR>#{error_string}</ERROR></RESPONSE>"
   else
     "<RESPONSE><APPLICATIONID>010101</APPLICATIONID><APPLICATIONDATE>#{DateTime.now}</APPLICATIONDATE><SIGNATURE></SIGNATURE><ERROR></ERROR></RESPONSE>"
   end
