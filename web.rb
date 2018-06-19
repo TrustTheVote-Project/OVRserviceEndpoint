@@ -5,7 +5,6 @@ post '/SureOVRWebAPI/api/ovr' do
   
   request.body.rewind
   a = request.body.read
-  Rails.logger.debug(a)
   request_payload = JSON.parse a
   
   
