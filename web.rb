@@ -1,10 +1,12 @@
 require 'sinatra'
 
 post '/SureOVRWebAPI/api/ovr' do
-  sleep 8
+  sleep 4
   
   request.body.rewind
-  request_payload = JSON.parse request.body.read
+  a = request.body.read
+  Rails.logger.debug(a)
+  request_payload = JSON.parse a
   
   
   @request_xml = request_payload["ApplicationData"]
