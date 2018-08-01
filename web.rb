@@ -1,7 +1,7 @@
 require 'sinatra'
 
 post '/SureOVRWebAPI/api/ovr' do
-  sleep 4
+  sleep 1
   
   request.body.rewind
   a = request.body.read
@@ -9,7 +9,7 @@ post '/SureOVRWebAPI/api/ovr' do
   
   
   @request_xml = request_payload["ApplicationData"]
-  Post.create!(xml_request: @request_xml)
+  Post.create!(xml_request: @request_xml, query_string: params)
   is_error = @request_xml =~ /<FirstName>ERROR<\/FirstName>/
   if is_error
      @request_xml =~ /<LastName>(.+)<\/LastName>/

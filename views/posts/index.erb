@@ -3,6 +3,7 @@
   <% @posts.each do |post| %>
     <li>
       <p>Created at <%= post.created_at %></p>
+      <h3>Query String: <%= post.query_string %></h3>
       <h4>Submission:</h4>
       <pre>
         <%= Rack::Utils.escape_html(post.xml_request.to_s.gsub("><",">\n\t<"))  %>
