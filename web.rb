@@ -16,7 +16,7 @@ post '/SureOVRWebAPI/api/ovr' do
      error_string = $1 || "There was an error"
      "<RESPONSE><APPLICATIONID></APPLICATIONID><APPLICATIONDATE>#{DateTime.now}</APPLICATIONDATE><SIGNATURE></SIGNATURE><ERROR>#{error_string}</ERROR></RESPONSE>"
   else
-    is_invalid_penndot = /<drivers-license>88888888<\/drivers-license>/
+    is_invalid_penndot = (@request_xml =~ /<drivers-license>88888888<\/drivers-license>/) && (@request_xml =~ /<continueAppSubmit>0<\/continueAppSubmit>/)
     if is_invalid_penndot
       
 "<RESPONSE><APPLICATIONID></APPLICATIONID><APPLICATIONDATE>#{DateTime.now}</APPLICATIONDATE><SIGNATURE></SIGNATURE><ERROR>VR_WAPI_InvalidOVRDL</ERROR></RESPONSE>"
