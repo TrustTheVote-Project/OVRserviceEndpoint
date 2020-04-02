@@ -1,3 +1,99 @@
+<h3>Instructions</h3>
+<p>To trigger a specific error code, use that error code as the Firt Name for the registrant.</p>
+<p>To trigger an ERROR response, use ERROR as the first name.</p>
+<p>To trigger an empty application ID, use EMPTY as the first name.</p>
+<p>To trigger a malformed response, use FORMAT as the first name.</p>
+<p>To trigger an timeout response, use TIMEOUT as the first name.</p>
+<p>
+Grommet Retries, Rocky goes to paper:
+</p>
+<ul>
+<li>VR_WAPI_PennDOTServiceDown </li>
+<li>VR_WAPI_ServiceError (Signature service is down)</li>
+<li>VR_WAPI_SystemError</li>
+</ul>
+
+<p>
+Grommet special cases (rocky goes to paper):
+</p>
+<ul>
+<li>VR_WAPI_Invalidsignaturecontrast - remove sig and resubmit</li>
+<li>VR_WAPI_InvalidOVRzipcode - attempt to fix zip+4 zip codes (registration, mailing, previous)</li>
+</ul>
+
+<p>
+Rocky allows user to retry, grommet alerst and gives up:
+</p>
+<ul>
+<li>VR_WAPI_InvalidOVRDL</li>
+</ul>
+
+<p>
+Remaining Error cases, Rocky goes to paper, grommet alerts and gives up.
+</p>
+<ul>
+<li>VR_WAPI_InvalidAccessKey</li>
+<li>VR_WAPI_InvalidAction</li>
+<li>VR_WAPI_InvalidAPIbatch</li>
+<li>VR_WAPI_InvalidOVRCounty</li>
+<li>VR_WAPI_InvalidOVRDLformat</li>
+<li>VR_WAPI_InvalidOVRDOB</li>
+<li>VR_WAPI_InvalidOVRemail</li>
+<li>VR_WAPI_InvalidOVRmailingzipcode</li>
+<li>VR_WAPI_InvalidOVRphone</li>
+<li>VR_WAPI_InvalidOVRPreviousCounty</li>
+<li>VR_WAPI_InvalidOVRPreviouszipcode</li>
+<li>VR_WAPI_InvalidOVRSSNformat</li>
+<li>VR_WAPI_invalidpreviousregyear</li>
+<li>VR_WAPI_InvalidReason</li>
+<li>VR_WAPI_MissingAccessKey</li>
+<li>VR_WAPI_MissingAddress</li>
+<li>VR_WAPI_MissingAPIaction</li>
+<li>VR_WAPI_MissingCounty</li>
+<li>VR_WAPI_MissingLanguage</li>
+<li>VR_WAPI_MissingOVRassistancedeclaration</li>
+<li>VR_WAPI_MissingOVRcity</li>
+<li>VR_WAPI_MissingOVRcounty</li>
+<li>VR_WAPI_MissingOVRdeclaration1</li>
+<li>VR_WAPI_MissingOVRDL</li>
+<li>VR_WAPI_MissingOVRfirstname</li>
+<li>VR_WAPI_MissingOVRinterpreterlang</li>
+<li>VR_WAPI_MissingOVRisageover18</li>
+<li>VR_WAPI_MissingOVRisuscitizen</li>
+<li>VR_WAPI_MissingOVRlastname</li>
+<li>VR_WAPI_MissingOVROtherParty</li>
+<li>VR_WAPI_MissingOVRPoliticalParty</li>
+<li>VR_WAPI_MissingOVRPreviousAddress</li>
+<li>VR_WAPI_MissingOVRPreviousCity</li>
+<li>VR_WAPI_MissingOVRPreviousFirstName</li>
+<li>VR_WAPI_MissingOVRPreviousLastName</li>
+<li>VR_WAPI_MissingOVRPreviousZipCode</li>
+<li>VR_WAPI_MissingOVRSSNDL</li>
+<li>VR_WAPI_MissingOVRstreetaddress</li>
+<li>VR_WAPI_MissingOVRtypeofassistance</li>
+<li>VR_WAPI_MissingOVRzipcode</li>
+<li>VR_WAPI_MissingReason</li>
+<li>VR_WAPI_RequestError</li>
+<li>VR_WAPI_InvalidOVRAssistedpersonphone</li>
+<li>VR_WAPI_InvalidOVRsecondemail</li>
+<li>VR_WAPI_Invalidsignaturestring</li>
+<li>VR_WAPI_Invalidsignaturetype</li>
+<li>VR_WAPI_Invalidsignaturesize</li>
+<li>VR_WAPI_Invalidsignaturedimension</li>
+<li>VR_WAPI_MissingOVRParty</li>
+<li>VR_WAPI_InvalidOVRPoliticalParty</li>
+<li>VR_WAPI_Invalidsignatureresolution</li>
+<li>VR_WAPI_MissingOVRmailinballotaddr</li>
+<li>VR_WAPI_MissingOVRmailincity</li>
+<li>VR_WAPI_MissingOVRmailinstate</li>
+<li>VR_WAPI_InvalidOVRmailinzipcode</li>
+<li>VR_WAPI_MissingOVRmailinlivedsince</li>
+<li>VR_WAPI_MissingOVRmailindeclaration</li>
+<li>VR_WAPI_MailinNotEligible</li>
+</ul>
+
+
+
 <h3>All Posts:</h3>
 <ul>
   <% @posts.each do |post| %>
