@@ -35,6 +35,16 @@ post '/SureOVRWebAPI/api/ovr' do
   
   
   
+  is_signature_error = @request_xml =~ /<FirstName>VR_WAPI_Invalidsignaturecontrast<\/FirstName>/
+  if !is_specific_error.nil? 
+    has_signature = @request_xml =~ /<signatureimage>\s*[^\s]+\s*<\/signatureimage>/
+    if has_signature.nil?
+      return "<RESPONSE><APPLICATIONID>010101</APPLICATIONID><APPLICATIONDATE>#{DateTime.now}</APPLICATIONDATE><SIGNATURE></SIGNATURE><ERROR></ERROR></RESPONSE>"
+    end
+    error_string = $1 || "There was an error"
+    return "<RESPONSE><APPLICATIONID></APPLICATIONID><APPLICATIONDATE>#{DateTime.now}</APPLICATIONDATE><SIGNATURE></SIGNATURE><ERROR>#{error_string}</ERROR></RESPONSE>"
+  end
+  
   is_specific_error = @request_xml =~ /<FirstName>(VR_WAPI_.+)<\/FirstName>/
   if is_specific_error
     error_string = $1 || "There was an error"
