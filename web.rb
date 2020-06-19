@@ -41,7 +41,7 @@ post '/SureOVRWebAPI/api/ovr' do
     if has_signature.nil?
       return "<RESPONSE><APPLICATIONID>010101</APPLICATIONID><APPLICATIONDATE>#{DateTime.now}</APPLICATIONDATE><SIGNATURE></SIGNATURE><ERROR></ERROR></RESPONSE>"
     end
-    error_string = $1 || "There was an error"
+    error_string = "VR_WAPI_Invalidsignaturecontrast"
     return "<RESPONSE><APPLICATIONID></APPLICATIONID><APPLICATIONDATE>#{DateTime.now}</APPLICATIONDATE><SIGNATURE></SIGNATURE><ERROR>#{error_string}</ERROR></RESPONSE>"
   end
   
